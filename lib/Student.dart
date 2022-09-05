@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'Menu.dart';
 
 class Student extends StatefulWidget {
   late String name='';
@@ -32,7 +33,17 @@ class _StudentState extends State<Student> {
       title: 'Register a student',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('aaaaaaaaaaaaa'),
+          title: Text('Header'),
+          // leading: Builder(
+          //   builder: (context) => IconButton(
+          //       onPressed: () {
+          //         Scaffold.of(context).openDrawer();
+          //       },
+          //       icon: Icon(Icons.settings)),
+          // )
+        ),
+        endDrawer: Drawer(
+          child: Menu()
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
