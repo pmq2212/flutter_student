@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'Student.dart';
 
 void main() {
-  runApp(Student());
+  runApp(GetMaterialApp(home: Hom));
 }
 
 

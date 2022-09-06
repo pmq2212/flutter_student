@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'Menu.dart';
 
 class Student extends StatefulWidget {
@@ -27,6 +28,7 @@ class _StudentState extends State<Student> {
   final emailEditingController = TextEditingController();
   final phoneEditingController = TextEditingController();
   final addressEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

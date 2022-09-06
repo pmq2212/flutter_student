@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'Student.dart';
+import 'StudentList.dart';
 
 class Menu extends StatelessWidget {
   @override
@@ -9,8 +11,17 @@ class Menu extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.only(top:50),
         children: [
-          ListTile(onTap: (){}, title: Text('Register student')),
-          ListTile(onTap: (){}, title: Text('List student')),
+          ListTile(
+            onTap: (){
+              // Navigator.push(context, MaterialPageRoute(builder: (_) => Student())) ;
+              Navigator.pop(context) ;
+            },
+              title: Text('Register student'), textColor: Colors.red),
+          ListTile(
+            onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_) => StudentList())) ;
+          },
+            title: Text('List student'), textColor: Colors.red),
         ],
       ),
     );
