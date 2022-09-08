@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'Student.dart';
+import 'package:get/get.dart';
 import 'StudentList.dart';
 
 class Menu extends StatelessWidget {
@@ -14,12 +14,14 @@ class Menu extends StatelessWidget {
           ListTile(
             onTap: (){
               // Navigator.push(context, MaterialPageRoute(builder: (_) => Student())) ;
-              Navigator.pop(context) ;
+              // Navigator.pop(context);
+              Get.back();
             },
               title: Text('Register student'), textColor: Colors.red),
           ListTile(
             onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_) => StudentList())) ;
+            // Navigator.push(context, MaterialPageRoute(builder: (_) => StudentList())) ;
+              Get.to(StudentList());
           },
             title: Text('List student'), textColor: Colors.red),
         ],

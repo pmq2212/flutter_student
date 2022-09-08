@@ -8,7 +8,7 @@ class Home extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Student();
+    return Student(null,null,null,null,null);
   }
 }
 

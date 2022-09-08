@@ -12,7 +12,7 @@ class Student extends StatefulWidget {
   late String? phone;
   late String? address;
 
-  Student(this.name, this.age, this.email, this.phone, this.address);
+  Student(String? name, int? age, String? email, String? phone, String? address);
 
   @override
   State<StatefulWidget> createState() {
@@ -22,11 +22,11 @@ class Student extends StatefulWidget {
 
 class _StudentState extends State<Student> {
   var stored = Get.put(StudentController());
-  String? _name = '';
-  int? _age = 0;
-  String? _email = '';
-  String? _phone = '';
-  String? _address = '';
+  String? _name;
+  int? _age;
+  String? _email;
+  String? _phone;
+  String? _address;
   final nameEditingController = TextEditingController();
   final ageEditingController = TextEditingController();
   final emailEditingController = TextEditingController();
