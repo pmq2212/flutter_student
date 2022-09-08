@@ -1,15 +1,18 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:fullter1/Home.dart';
 import 'package:get/get.dart';
 import 'Menu.dart';
 
 class Student extends StatefulWidget {
-  late String name='';
-  late int age=0;
-  late String email='';
-  late String phone='';
-  late String address='';
+  late String? name;
+  late int? age;
+  late String? email;
+  late String? phone;
+  late String? address;
+
+  Student(this.name, this.age, this.email, this.phone, this.address);
 
   @override
   State<StatefulWidget> createState() {
@@ -18,11 +21,12 @@ class Student extends StatefulWidget {
 }
 
 class _StudentState extends State<Student> {
-  String _name = '';
-  int _age = 0;
-  String _email = '';
-  String _phone = '';
-  String _address = '';
+  var stored = Get.put(StudentController());
+  String? _name = '';
+  int? _age = 0;
+  String? _email = '';
+  String? _phone = '';
+  String? _address = '';
   final nameEditingController = TextEditingController();
   final ageEditingController = TextEditingController();
   final emailEditingController = TextEditingController();
@@ -89,13 +93,22 @@ class _StudentState extends State<Student> {
                 ),
               )
             ),
-            Text(_name),
+            Text(_name.toString()),
             // Text("${widget.age}"),
             // Text(_email),
             // Text(widget.phone),
             OutlinedButton(
               child: Text('Register'),
-              onPressed: () {  },
+              onPressed: () {
+                stored.studentList.add(
+                    Student(
+                  _name,
+                   _age,
+                  _email,
+                  _phone,
+                  _address
+                ));
+              },
             ),
           ],
         ),
