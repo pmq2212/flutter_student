@@ -7,11 +7,11 @@ import 'Student.dart';
 import 'Menu.dart';
 
 class StudentList extends StatelessWidget {
-  late List<Student> studentList;
+  // late List<Student> studentList;
 
   @override
   Widget build(BuildContext context) {
-    var stored = <Student>[].obs;
+    // var stored = <Student>[].obs;
     final controller = Get.find<StudentController>();
 
     return MaterialApp(

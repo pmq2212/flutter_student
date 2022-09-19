@@ -5,13 +5,19 @@ import 'Menu.dart';
 
 class Home extends StatelessWidget{
   RxInt count = 0.obs;
+  var stored = Get.put(StudentController());
 
   @override
   Widget build(BuildContext context) {
-    return Student(null,null,null,null,null);
+    return Student();
   }
 }
 
 class StudentController extends GetxController {
-  List<Student> studentList = [];
+  List<Student> studentList = <Student>[];
+
+  void updateStudent(student) {
+    studentList.add(student);
+    // update();
+  }
 }

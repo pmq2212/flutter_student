@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'Student.dart';
 
 void main() {
+  // Get.put(StudentController());
   runApp(GetMaterialApp(home: Home()));
 }
 

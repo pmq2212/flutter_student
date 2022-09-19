@@ -12,7 +12,7 @@ class Student extends StatefulWidget {
   late String? phone;
   late String? address;
 
-  Student(String? name, int? age, String? email, String? phone, String? address);
+  Student({Key? key, this.name, this.age, this.email, this.phone, this.address}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -21,9 +21,8 @@ class Student extends StatefulWidget {
 }
 
 class _StudentState extends State<Student> {
-  var stored = Get.put(StudentController());
   String? _name;
-  int? _age;
+  String? _age;
   String? _email;
   String? _phone;
   String? _address;
@@ -32,9 +31,11 @@ class _StudentState extends State<Student> {
   final emailEditingController = TextEditingController();
   final phoneEditingController = TextEditingController();
   final addressEditingController = TextEditingController();
+  final controller = Get.find<StudentController>();
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'Register a student',
       home: Scaffold(
@@ -57,23 +58,23 @@ class _StudentState extends State<Student> {
             TextField(
               controller: nameEditingController,
               onChanged: (text){
-                this.setState(() {
+                setState(() {
                   _name = text;
                 });
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Input name'
               ),
             ),
             TextField(
               controller: ageEditingController,
-              onChanged: (text){
-                this.setState(() {
-                  _age = text as int;
+              onChanged: (t){
+                setState(() {
+                  _age = t;
                 });
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Input age'
               ),
@@ -83,7 +84,7 @@ class _StudentState extends State<Student> {
                 child: TextField(
                   controller: emailEditingController,
                   onChanged: (text){
-                    this.setState(() {
+                    setState(() {
                       _email = text;
                     });
                   },
@@ -100,13 +101,13 @@ class _StudentState extends State<Student> {
             OutlinedButton(
               child: Text('Register'),
               onPressed: () {
-                stored.studentList.add(
+                controller.updateStudent(
                     Student(
-                  _name,
-                   _age,
-                  _email,
-                  _phone,
-                  _address
+                  name: _name,
+                  age: int.parse(_age!),
+                  email: _email,
+                  phone: _phone,
+                  address: _address
                 ));
               },
             ),
